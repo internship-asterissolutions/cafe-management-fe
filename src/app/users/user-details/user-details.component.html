@@ -1,0 +1,81 @@
+<p><b>Create Your Account</b></p>
+<form class="example-form">
+    <mat-form-field class="example-full-width">
+        <mat-label>NAME</mat-label>
+        <input type="text" matInput [formControl]="nameFormControl"
+               placeholder="Ex.Itsu">
+        <!-- <mat-hint>Errors appear instantly!</mat-hint>  -->
+         @if (nameFormControl.hasError('name') && !nameFormControl.hasError('required')) {
+          <mat-error>Please enter a valid Name</mat-error>
+        }
+        @if (nameFormControl.hasError('required')) {
+          <mat-error>Name is <strong>required</strong></mat-error>
+        }
+        
+       </mat-form-field>
+      
+    <br> 
+    
+    <mat-form-field class="example-full-width">
+        <mat-label>Email</mat-label>
+        <input type="email" matInput [formControl]="emailFormControl"
+               placeholder="Ex. pat@example.com">
+        <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
+        @if (emailFormControl.hasError('email') && !emailFormControl.hasError('required')) {
+          <mat-error>Please enter a valid email address</mat-error>
+        }
+        @if (emailFormControl.hasError('required')) {
+          <mat-error>Email is <strong>required</strong></mat-error>
+        }
+        
+      </mat-form-field>
+
+      <br>
+
+      <mat-form-field class="example-full-width">
+        <mat-label>PHONE_NO</mat-label>
+        <input matInput [formControl]="phoneFormControl"
+               placeholder="Ex.9273894742">
+        <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
+        @if (phoneFormControl.hasError('phone') && !phoneFormControl.hasError('required')) {
+          <mat-error>Please enter a valid Phone no</mat-error>
+        }
+        @if (phoneFormControl.hasError('required')) {
+          <mat-error>Phone_No is <strong>required</strong></mat-error>
+        }
+        
+      </mat-form-field>
+    <br>
+    <mat-form-field class="example-full-width">
+        <mat-label>AGE</mat-label>
+        <input type="number" matInput [formControl]="ageFormControl"
+               placeholder="Ex.20">
+        <!-- <mat-hint>Errors appear instantly!</mat-hint> -->
+        @if (ageFormControl.hasError('name') && !ageFormControl.hasError('required')) {
+          <mat-error>Please enter a valid Age</mat-error>
+        }
+        @if (ageFormControl.hasError('required')) {
+          <mat-error>Age is <strong>required</strong></mat-error>
+        }
+        
+      </mat-form-field>
+    <br>
+    <mat-form-field class="example-full-width">
+     <mat-label>Address {{addressFormControlss}}</mat-label>
+     <input  matInput [formControl]="addressFormControl"
+            placeholder="address">
+     <!-- <mat-hint>Errors appear instantly!</mat-hint>  -->
+      @if (addressFormControl.hasError('name') && !addressFormControl.hasError('required')) {
+       <mat-error>Please enter a valid Name</mat-error>
+     }
+     @if (addressFormControl.hasError('required')) {
+       <mat-error>Name is <strong>required</strong></mat-error>
+     }
+     
+    </mat-form-field>
+    <br>
+    <button *ngIf="id == null" mat-flat-button (click)="onSubmit()">SUBMIT</button>
+
+    <button *ngIf="id != null" mat-flat-button (click)="onUpdate()">UPDATE</button>
+  </form>
+  
