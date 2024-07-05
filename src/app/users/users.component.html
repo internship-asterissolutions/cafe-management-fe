@@ -1,0 +1,63 @@
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+  
+    <!-- Position Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> ID </th>
+      <td mat-cell *matCellDef="let element"> {{element?.id}} </td>
+    </ng-container>
+  
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> Name </th>
+      <td mat-cell *matCellDef="let element"> {{element?.name}} </td>
+    </ng-container>
+  
+    <!-- Weight Column -->
+    <ng-container matColumnDef="emailid">
+      <th mat-header-cell *matHeaderCellDef> Emailid </th>
+      <td mat-cell *matCellDef="let element"> {{element?.emailid}} </td>
+    </ng-container>
+
+   <ng-container matColumnDef="phone_no">
+      <th mat-header-cell *matHeaderCellDef> Phone </th>
+      <td mat-cell *matCellDef="let element"> {{element?.phone_no}} </td>
+    </ng-container>
+  
+
+    <ng-container matColumnDef="age">
+        <th mat-header-cell *matHeaderCellDef>  Age  </th>
+        <td mat-cell *matCellDef="let element"> {{element?.age}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="address">
+        <th mat-header-cell *matHeaderCellDef> Address </th>
+        <td mat-cell *matCellDef="let element"> {{element?.address}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="dactions" stickyEnd>
+        <th mat-header-cell *matHeaderCellDef aria-label="row actions">Delete actions</th>
+        <td mat-cell *matCellDef="let element">
+          
+          
+        <button type="button"  (click)="deleteUser(element)">Delete</button>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="uactions" stickyEnd>
+        <th mat-header-cell *matHeaderCellDef aria-label="row actions">Update actions</th>
+        <td mat-cell *matCellDef="let element">
+
+        <button type="button" [routerLink]="['/user/'+ element.id]" routerLinkActive="router-link-active" >Update</button>
+          
+        </td>
+      </ng-container>
+
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  
+  
